@@ -34,10 +34,10 @@ function arrayOfArrayEl (elem_0, elem_2){
         elem_2.insertAdjacentHTML('beforeend',
         
         `
-        <div class="form">
-            <img width="40" src='./assets/img/${elem_0[i][0]+".svg"}' alt="">
+        <div class="form_input">
+            <img width="60" src='./assets/img/${elem_0[i][0]+".svg"}' alt="">
             <label for="${elem_0[i][0]}">${elem_0[i][0]}</label>
-            <input type="checkbox" name="${elem_0[i][0]}" id="${elem_0[i][0]}" data-price="${elem_0[i][1]}">
+            <input type="checkbox" name="${elem_0[i][0]}" id="${elem_0[i][0]}" data-price="${elem_0[i][1]}"><span>add</span>
         </div>
         `
         );
@@ -96,20 +96,28 @@ function calcolaPrezzo(){
     if( scontoCoupon == couponList[0]) {
 
         burgerSalePrice = burgerTotalPrice - ((burgerTotalPrice*5)/100);
+        document.getElementById("costo_panino").innerHTML=  "$ " + burgerSalePrice;
 
     } else if( scontoCoupon == couponList[1]){
 
         burgerSalePrice = burgerTotalPrice - ((burgerTotalPrice*10)/100);
+        document.getElementById("costo_panino").innerHTML= "$ " + burgerSalePrice;
 
     } else if ( scontoCoupon == couponList[2]) {
 
         burgerSalePrice = burgerTotalPrice - 5;
+        document.getElementById("costo_panino").innerHTML= "$ " + burgerSalePrice;
 
+    } else{
+        document.getElementById("costo_panino").innerHTML=  "$ " + burgerTotalPrice;
     }
 
     console.log(burgerSalePrice)
 
+    
 }
+
+
 
  /*     var couponList = [
 

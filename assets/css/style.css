@@ -1,0 +1,76 @@
+*{
+    box-sizing:border-box;
+    padding: 0;
+    margin: 0px;
+}
+body{
+    background-color: #FFF5E2;
+}
+#site_header{
+    position: relative;
+    background-color: #FDBB40;
+    height: 80px;
+    width: 800px;
+}
+#site_header img{
+    position: absolute;
+    top: -30px;
+    right: 0;
+}
+h1{
+    position: absolute;
+    bottom:10px;
+    padding-left: 10px;
+    font-size: 35px;
+}
+.contenitore{
+    width: 800px;
+    padding-left: 10px; 
+    background-color: white;
+    margin-bottom: 50px;
+}
+#nameyourburger{
+    border: none;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+
+.elementi_panino{
+    height:300px;  
+}
+
+.form_input{
+    width: calc(90% / 2);
+    margin-top: 40px;
+}
+
+#coupon{
+    background-color: #FFF5E2;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 1px 2px 1px 1px #a8a8a8;
+    width: 500px;
+}
+
+span{
+    padding-left: 10px;
+    color: fuchsia;
+}
+
+#site_footer{
+    height: 80px;
+    width: 800px;
+    background-color: #D33359;
+}
+ p{
+     color: ghostwhite;
+     font-size: 30px;
+ }
+.pl_30px{
+    margin-left: 30px ;
+}
+.pr_80px{
+    margin-right: 80px;
+    
+}
