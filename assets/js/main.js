@@ -23,7 +23,7 @@
 
 function arrayOfArrayEl (elem_0, elem_2){
 
-    for(var i=0 ; i < elem_0.length; i++ ){
+    for(var i=0 ; i < elem_0.length; i++){
 
         //Mi stampano in console gli i elementi della
         var elementsArrayIngr = elem_0[i][0];
@@ -37,11 +37,11 @@ function arrayOfArrayEl (elem_0, elem_2){
         <div class="form">
             <img width="40" src='./assets/img/${elem_0[i][0]+".svg"}' alt="">
             <label for="${elem_0[i][0]}">${elem_0[i][0]}</label>
-            <input type="checkbox" name="${elem_0[i][0]}" id="${elem_0[i][0]}" data-price = ${elem_0[i][1]}>
+            <input type="checkbox" name="${elem_0[i][0]}" id="${elem_0[i][0]}" data-price="${elem_0[i][1]}">
         </div>
         `
         );
-        }
+    }
 }
 
 var printIngr = document.querySelector(".elementi_panino")
@@ -49,7 +49,133 @@ var printIngr = document.querySelector(".elementi_panino")
 arrayOfArrayEl (ingredienti, printIngr);
 
 
-//COME ASSOCIO LA LISTA ARRAY AL FOMR ? Richiamo elementi dell'array e li associo a una variabile po
+
+//Devo costruire una seconda funzione che al click di button mi esegua una somma di: PrezzoBasePanino + Prezzo Aggiunta se selezionata - sconto se inserito.
+
+document.getElementById("calculate").addEventListener("click", calcolaPrezzo);
+
+function calcolaPrezzo(){
+
+    var burgerPriceBase = 8;
+    var burgerAddPrice = 0;
+
+    // Definisco una variabile che corrisponde a tutti gli elementi di questo tipo (input) nel mio codice. Successivamente, passo la variabile in un ciclo for per fare una verifica di quali restituiscono valore true. 
+    var checks = document.querySelectorAll("input[type='checkbox']");
+    
+
+    //Il ciclo passa tutti gli attributi data-price ogni volta che il checkbox è spuntato e restituisce valore booleano true
+    for(var i = 0; i < checks.length; i++){
+
+        var ingredBooleanCheck = checks[i]
+
+        if(ingredBooleanCheck.checked === true){
+
+            burgerAddPrice += Number(ingredBooleanCheck.getAttribute('data-price'))
+
+        }
+
+    }
+    console.log(burgerAddPrice);
+
+    var burgerTotalPrice = burgerPriceBase  + burgerAddPrice;
+
+    console.log(burgerTotalPrice)
+
+    var couponList = [
+
+    "burger5",
+    "burger10%",
+    "burger5€"
+
+    ]
+
+    var scontoCoupon = document.getElementById("coupon").value;
+
+    var burgerSalePrice
+
+    if( scontoCoupon == couponList[0]) {
+
+        burgerSalePrice = burgerTotalPrice - ((burgerTotalPrice*5)/100);
+
+    } else if( scontoCoupon == couponList[1]){
+
+        burgerSalePrice = burgerTotalPrice - ((burgerTotalPrice*10)/100);
+
+    } else if ( scontoCoupon == couponList[2]) {
+
+        burgerSalePrice = burgerTotalPrice - 5;
+
+    }
+
+    console.log(burgerSalePrice)
+
+}
+
+ /*     var couponList = [
+
+        "burger5",
+        "burger10%",
+        "burger5€"
+
+    ]
+
+    var scontoCoupon = document.getElementById("coupon").value;
+
+    for (var i=0; i < couponList.length; i++) {
+
+        if( scontoCoupon == couponList[i]) {
+
+        var burgerSalePrice = burgerTotalPrice - ((burgerTotalPrice*5)/100);
+
+        
+        if( scontoCoupon == couponList[i]) {
+
+            var burgerSalePrice = burgerTotalPrice - ((burgerTotalPrice*10)/100);
+    
+            }
+        
+    }console.log(burgerSalePrice)*/
+
+
+
+
 
 // COME CONTEGGIO LA MAGGIORAZIONE ? -->CHECKBOX : il checkbox è un input che se richiamo con il metodo .checked restituisce un valore true o false.
     //con il true devo tenere conto del sovraprezzo, se è falso non ne tengo conto. 
+
+   /*  document.getElementById("calculate").addEventListener('click', calcolaPrezzo);
+
+    function calcolaPrezzo(){
+        
+        var burgerPriceBase = 8.99;
+        var burgerAddPrice = 0;
+
+        console.log(burgerPriceBase);
+
+        // Incremento prezzo panino quando un ingrediente viene selezionato 
+        var checks = document.querySelectorAll("input[type='checkbox']");
+        
+        console.log(checks);
+    
+        
+        for(var i = 0; i < checks.length; i++) {
+
+            var ingredBooleanCheck = checks[i];
+            
+            if(ingredBooleanCheck.checked){
+
+                burgerAddPrice += Number(ingredBooleanCheck.getAttribute('data-price'))
+            }
+        }
+        console.log(burgerAddPrice);
+
+        var burgerTotalPrice = burgerPriceBase  + burgerAddPrice;
+
+        console.log(burgerTotalPrice.toFixed(2));
+
+        // Definire codici scnto e calcolo prezzo finale scontatato
+        var couponsList = [
+    
+        ];
+    
+    }; */
