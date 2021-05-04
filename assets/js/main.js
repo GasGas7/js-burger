@@ -23,8 +23,9 @@
 
 function arrayOfArrayEl (elem_0, elem_2){
 
-    for(i=0 ; i < elem_0.length; i++ ){
+    for(var i=0 ; i < elem_0.length; i++ ){
 
+        //Mi stampano in console gli i elementi della
         var elementsArrayIngr = elem_0[i][0];
         var elementsArrayPrice = elem_0[i][1];
         console.log(elementsArrayIngr);
@@ -35,11 +36,11 @@ function arrayOfArrayEl (elem_0, elem_2){
         `
         <div class="form">
             <img width="40" src='./assets/img/${elem_0[i][0]+".svg"}' alt="">
-            <label for="${elem_0[i][0]}>${elem_0[i][0]}</label>
+            <label for="${elem_0[i][0]}">${elem_0[i][0]}</label>
             <input type="checkbox" name="${elem_0[i][0]}" id="${elem_0[i][0]}" data-price = ${elem_0[i][1]}>
         </div>
         `
-        )
+        );
         }
 }
 
