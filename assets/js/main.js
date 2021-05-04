@@ -17,13 +17,23 @@
         ["Ketchup","0.5"]
     ]
 
- for(i=0 ; i < ingredienti.length; i++ ) {
+ 
 
-    var ElementsArrayIngr = ingredienti[i][0];
+//Inserisco il for in una funzione con due paramentri. Il primo legge il primo elemento dell'array, il secondo parametro legge il secondo elemento dell'array che sarà aggiunto all'attributo "data-" nel checkbox_html ".
 
-    console.log(ElementsArrayIngr);
+function arrayOfArrayEl (elem_0){
+
+    for(i=0 ; i < elem_0.length; i++ ) {
+
+        var elementsArrayIngr = elem_0[i][0];
+
+        console.log(elementsArrayIngr);
     
+    }
+
 }
+
+arrayOfArrayEl (ingredienti);
 
 
 //COME ASSOCIO LA LISTA ARRAY AL FOMR ? Richiamo elementi dell'array e li associo a una variabile po
